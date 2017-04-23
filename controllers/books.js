@@ -12,6 +12,22 @@ function booksIndex(req, res) {
   });
 }
 
+function booksShow(req, res) {
+  Book
+  .findById(req.params.id)
+  .exec()
+  .then(book => {
+    if(!book) {
+      return res.render('error', { error: 'No book found.' });
+    }
+    return res.render('books/show', { book });
+  })
+  .catch(err => {
+    return res.render('error', { error: err });
+  });
+}
+
 module.exports = {
-  index: booksIndex
+  index: booksIndex,
+  show: booksShow
 };

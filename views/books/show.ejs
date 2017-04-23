@@ -1,0 +1,6 @@
+<h1>Books (show)</h1>
+<ul>
+  <% books.forEach(book => { %>
+  <li><a href="books/<%= books._id %>"><%= books.title %></a></li>
+<% }); %>
+</ul>
