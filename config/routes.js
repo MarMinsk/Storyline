@@ -13,6 +13,10 @@ router.route('/books')
 router.route('/books/new')
   .get(books.new); // 'new' route needs to be above the 'show' route
 router.route('/books/:id')
-  .get(books.show);
+  .get(books.show)
+  .put(books.update);
+router.route('/books/:id/edit')
+  .get(books.edit);
+
 
 module.exports = router;

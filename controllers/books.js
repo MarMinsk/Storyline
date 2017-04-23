@@ -43,9 +43,50 @@ function booksCreate(req, res) {
     });
 }
 
+function booksEdit(req, res) {
+  Book
+    .findById(req.params.id)
+    .exec()
+    .then(book => {
+      if (!book) {
+        return res.render('error', { error: 'No book found! '});
+      }
+      return res.render('books/edit', { book });
+    })
+    .catch(err => {
+      return res.render('error', { error: err });
+    });
+}
+
+function booksUpdate(req, res) {
+  Book
+    .findById(req.params.id)
+    .exec()
+    .then(book => {
+      if(!book) {
+        return res.render('error', { error: 'No book found!' });
+      }
+      for (const field in req.body) {
+        book[field] = req.body[field];
+      }
+      return book.save();
+    })
+    .then(book => {
+      if (!book) {
+        return res.render('error', {error: 'Something went wrong during the update.'});
+      }
+      return res.render('books/show', { book });
+    })
+    .catch(err => {
+      return res.render('error', { error: err });
+    });
+}
+
 module.exports = {
   index: booksIndex,
   show: booksShow,
   new: booksNew,
-  create: booksCreate
+  create: booksCreate,
+  edit: booksEdit,
+  update: booksUpdate
 };

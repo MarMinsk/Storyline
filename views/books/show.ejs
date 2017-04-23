@@ -1,5 +1,7 @@
 <h1>Books (show pages)</h1>
+
 <h1><%= book.title %></h1>
+<a href="/books/<%= book._id %>/edit">Edit</a>
 <img src="<%= book.image %>" alt="<%= book.title %>'s image">
 <p>Author: <%= book.author %></p>
 <p>Genre: <%= book.genre %></p>
