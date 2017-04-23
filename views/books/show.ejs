@@ -1,6 +1,5 @@
-<h1>Books (show)</h1>
-<ul>
-  <% books.forEach(book => { %>
-  <li><a href="books/<%= books._id %>"><%= books.title %></a></li>
-<% }); %>
-</ul>
+<h1>Books (show pages)</h1>
+<h1><%= book.title %></h1>
+<img src="<%= book.image %>" alt="<%= book.title %>'s image">
+<p>Author: <%= book.author %></p>
+<p>Genre: <%= book.genre %></p>
