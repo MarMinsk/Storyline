@@ -82,11 +82,24 @@ function booksUpdate(req, res) {
     });
 }
 
+function booksDelete(req, res) {
+  Book
+  .findByIdAndRemove(req.params.id)
+  .exec()
+  .then(() => {
+    return res.redirect('/books');
+  })
+  .catch(err => {
+    return res.render('error', { error: err });
+  });
+}
+
 module.exports = {
   index: booksIndex,
   show: booksShow,
   new: booksNew,
   create: booksCreate,
   edit: booksEdit,
-  update: booksUpdate
+  update: booksUpdate,
+  delete: booksDelete
 };
