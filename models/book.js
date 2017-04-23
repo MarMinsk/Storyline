@@ -5,7 +5,7 @@ const bookSchema = new mongoose.Schema({
   author: { type: String, required: true },
   genre: { type: String },
   image: { type: String },
-  urlLink: {type: String}
+  link: {type: String}
 }, {
   timestamp: true
 }

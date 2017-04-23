@@ -27,9 +27,8 @@ app.use(methodOverride((req) => {
   }
 }));
 
-// didn't work in set-up testing!!!!!!!
+// didn't redirect to index page in set-up testing!!!!!!!
 // app.get('/', (req, res) => res.render('index'));
-
 
 app.use(router);
 
