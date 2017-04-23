@@ -27,7 +27,25 @@ function booksShow(req, res) {
   });
 }
 
+function booksNew(req, res) {
+  return res.render('books/new');
+}
+
+function booksCreate(req, res) {
+  Book
+    .create(req.body)
+    .then(book => {
+      if(!book) return res.render('error', { error: 'No book was created!' });
+      return res.redirect('/books');
+    })
+    .catch(err =>{
+      return res.render('error', { error: err });
+    });
+}
+
 module.exports = {
   index: booksIndex,
-  show: booksShow
+  show: booksShow,
+  new: booksNew,
+  create: booksCreate
 };
