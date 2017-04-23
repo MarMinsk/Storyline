@@ -1,4 +1,5 @@
 const express         = require('express');
+const morgan          = require('morgan');
 const expressLayouts  = require('express-ejs-layouts');
 const bodyParser      = require('body-parser');
 const mongoose        = require('mongoose');
@@ -9,9 +10,12 @@ const app             = express();
 
 mongoose.connect(env.db);
 
+//Settings
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 
+//Middleware
+app.use(morgan('dev'));
 app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,6 +26,10 @@ app.use(methodOverride((req) => {
     return method;
   }
 }));
+
+// didn't work in set-up testing!!!!!!!
+// app.get('/', (req, res) => res.render('index'));
+
 
 app.use(router);
 
