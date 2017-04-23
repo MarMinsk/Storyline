@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../model/user');
 
 function sessionsNew(req, res) {
   res.render('sessions/new');
@@ -10,5 +10,5 @@ function sessionsCreate(req, res) {
 
 module.exports = {
   new: sessionsNew,
-  creae: sessionsCreate
+  create: sessionsCreate
 };
