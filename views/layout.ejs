@@ -16,18 +16,17 @@
   <ul>
     <li><a href="/">Home</a></li>
     <% if (locals.isLoggedIn) { %>
-    <li>><a href="/logout">Logout</a></li>
+      <li><a href="/books">View Books</a></li>
+      <li><a href="/books/new">Add Book</a></li>
+      <li><a href="/logout">Logout</a></li>
     <% } else{ %>
-    <li><a href="/login">Log In</a></li>
-    <li><a href="/register">Register</a></li>
+      <li><a href="/login">Log In</a></li>
+      <li><a href="/register">Register</a></li>
     <% } %>
-    <li><a href="/books">View Books</a></li>
-    <li><a href="/books/new">Add Book</a></li>
   </ul>
 </header>
-
-  <main>
-    <%- body %>
-  </main>
+<main class="container">
+  <%- body %>
+</main>
 </body>
 </html>

@@ -1,15 +1,17 @@
-const express        = require('express');
-const router         = express.Router();
+const router         = require('express').Router();
 
 // Controllers
-// const statics        = require('../controller/statics');
+const statics        = require('../controllers/statics');
 const books          = require('../controllers/books');
 const registrations  = require('../controllers/registrations');
-const sessions       = require('../controllers/sessions'); // *walkthru notes
+const sessions       = require('../controllers/sessions');
+
+ // *walkthru notes
 
 function secureRoute(req, res, next) {
   if (!req.session.userId) {
     return req.session.regenerate(() => {
+      req.flash('danger', 'You must be logged in.');
       res.redirect('/login');
     });
   }

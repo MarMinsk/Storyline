@@ -1,98 +1,71 @@
 const Book      = require('../models/book');
 
-function booksIndex(req, res) {
+function booksIndex(req, res, next) {
   Book
   .find()
-  .exec()
-  .then(books => {
-    return res.render('books', { books });
-  })
-  .catch(err => {
-    return res.render('error', { error: err });
-  });
+  .then((books) => res.render('books/index', { books }))
+  .catch(next);
 }
 
-function booksShow(req, res) {
+function booksShow(req, res, next) {
   Book
   .findById(req.params.id)
-  .exec()
-  .then(book => {
-    if(!book) {
-      return res.render('error', { error: 'No book found.' });
-    }
-    return res.render('books/show', { book });
+  .then((book) => {
+    if(!book) return res.status(404).render('statics/404');
+    res.render('books/show', { book });
   })
-  .catch(err => {
-    return res.render('error', { error: err });
-  });
+  .catch(next);
 }
 
 function booksNew(req, res) {
   return res.render('books/new');
 }
 
-function booksCreate(req, res) {
+function booksCreate(req, res, next) {
   Book
-    .create(req.body)
-    .then(book => {
-      if(!book) return res.render('error', { error: 'No book was created!' });
-      return res.redirect('/books');
-    })
-    .catch(err =>{
-      return res.render('error', { error: err });
-    });
+  .create(req.body)
+  .then(() => res.redirect('/books'))
+  .catch(next);
 }
 
-function booksEdit(req, res) {
+function booksEdit(req, res, next) {
   Book
-    .findById(req.params.id)
-    .exec()
-    .then(book => {
-      if (!book) {
-        return res.render('error', { error: 'No book found! '});
-      }
-      return res.render('books/edit', { book });
-    })
-    .catch(err => {
-      return res.render('error', { error: err });
-    });
-}
-
-function booksUpdate(req, res) {
-  Book
-    .findById(req.params.id)
-    .exec()
-    .then(book => {
-      if(!book) {
-        return res.render('error', { error: 'No book found!' });
-      }
-      for (const field in req.body) {
-        book[field] = req.body[field];
-      }
-      return book.save();
-    })
-    .then(book => {
-      if (!book) {
-        return res.render('error', {error: 'Something went wrong during the update.'});
-      }
-      return res.render('books/show', { book });
-    })
-    .catch(err => {
-      return res.render('error', { error: err });
-    });
-}
-
-function booksDelete(req, res) {
-  Book
-  .findByIdAndRemove(req.params.id)
-  .exec()
-  .then(() => {
-    return res.redirect('/books');
+  .findById(req.params.id)
+  .then((book) => {
+    if(!book) return res.status(404).render('statics/404');
+    res.render('books/edit', { book });
   })
-  .catch(err => {
-    return res.render('error', { error: err });
-  });
+  .catch(next);
 }
+
+
+function booksUpdate(req, res, next) {
+  Book
+  .findById(req.params.id)
+  .then((book) => {
+    if(!book) return res.status(404).render('statics/404');
+
+    for(const field in req.body) {
+      book[field] = req.body[field];
+    }
+
+    return book.save();
+  })
+  .then((book) => res.redirect(`/books/${book.id}`))
+  .catch(next);
+}
+
+function booksDelete(req, res, next) {
+  Book
+  .findById(req.params.id)
+  .then((book) => {
+    if(!book) return res.status(404).render('statics/404');
+    return book.remove();
+  })
+  .then(() => res.redirect('/books'))
+  .catch(next);
+}
+
 
 module.exports = {
   index: booksIndex,

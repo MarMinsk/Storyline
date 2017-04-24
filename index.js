@@ -1,35 +1,32 @@
-const express         = require('express');
-const morgan          = require('morgan');
-const expressLayouts  = require('express-ejs-layouts');
-const bodyParser      = require('body-parser');
-const methodOverride  = require('method-override');
-const mongoose        = require('mongoose');
-// mongoose.Promise      = require('bluebird');
-const router          = require('./config/routes');
-const User            = require('./models/user');
-const env             = require('./config/env');
-const session         = require('express-session');
-// const flash           = require('express-flash');
+// require modules
+const express        = require('express');
+const morgan         = require('morgan');
+const expressLayouts = require('express-ejs-layouts');
+const bodyParser     = require('body-parser');
+const methodOverride = require('method-override');
+const mongoose       = require('mongoose');
+mongoose.Promise     = require('bluebird');
+const routes         = require('./config/routes');
+const User           = require('./models/user');
+const session        = require('express-session');
+const flash          = require('express-flash');
+const env            = require('./config/env');
 
-const app             = express();
-
-
-mongoose.connect(env.db);
-
-//Settings
+// setup Express app
+const app = express();
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 
+// setup database
+mongoose.connect(env.db);
 
-// didn't redirect to index page in set-up testing!
-// app.get('/', (req, res) => res.render('index'));
-
-//Middleware
+// middleware
 app.use(morgan('dev'));
 app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(methodOverride((req) => {
+
+app.use(methodOverride(function (req) {
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
     const method = req.body._method;
     delete req.body._method;
@@ -38,26 +35,39 @@ app.use(methodOverride((req) => {
 }));
 
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'Shh it\'s a secret',
+  secret: process.env.SESSION_SECRET || 'ssh it\'s a secret',
   resave: false,
   saveUninitialized: false
 }));
 
+app.use(flash());
+
 app.use((req, res, next) => {
+  console.log(req.session.userId);
   if (!req.session.userId) return next();
 
   User
     .findById(req.session.userId)
+    .exec()
     .then((user) => {
+      if(!user) {
+        return req.session.regenerate(() => {
+          req.flash('danger', 'You must be logged in.');
+          res.redirect('/');
+        });
+      }
 
+      // Re-assign the session id for good measure
       req.session.userId = user._id;
 
       res.locals.user = user;
       res.locals.isLoggedIn = true;
 
+      console.log(user);
+
       next();
     });
 });
 
-app.use(router);
-app.listen(env.port, () => console.log(`Server up and running on port: ${env.port}.`));
+app.use(routes);
+app.listen(env.port, () => console.log(`Express is listening on port ${env.port}`));
