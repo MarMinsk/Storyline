@@ -27,9 +27,16 @@ app.use(methodOverride((req) => {
   }
 }));
 
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'Shh it\'s a secret',
+  resave: false,
+  saveUninitialized: false
+}));
+
+
 // didn't redirect to index page in set-up testing!!!!!!!
 // app.get('/', (req, res) => res.render('index'));
 
-app.use(router);
 
+app.use(router);
 app.listen(env.port, () => console.log(`Server up and running on port: ${env.port}.`));
