@@ -2,5 +2,6 @@
 <ul>
   <% books.forEach(book => { %>
     <li><a href="/books/<%= book._id %>"><%= book.title %></a></li>
+    <li><img src="<%= book.image %>" alt="<%= book.title %>'s image" class="bookImage"></li>
   <% }); %>
 </ul>
