@@ -7,22 +7,31 @@ const books          = require('../controllers/books');
 const registrations  = require('../controllers/registrations');
 const sessions       = require('../controllers/sessions'); // *walkthru notes
 
+function secureRoute(req, res, next) {
+  if (!req.session.userId) {
+    return req.session.regenerate(() => {
+      res.redirect('/login');
+    });
+  }
+  return next();
+}
+
 router.get('/', (req, res) => res.render('statics/home'));
 
 router.route('/books')
   .get(books.index)
-  .post(books.create);
+  .post(secureRoute, books.create);
 
 router.route('/books/new')
-  .get(books.new); // 'new' route needs to be above the 'show' route
+  .get(secureRoute, books.new); // 'new' route needs to be above the 'show' route
 
 router.route('/books/:id')
   .get(books.show)
-  .put(books.update)
-  .delete(books.delete);
+  .put(secureRoute, books.update)
+  .delete(secureRoute, books.delete);
 
 router.route('/books/:id/edit')
-  .get(books.edit);
+  .get(secureRoute, books.edit);
 
 router.route('/register')
   .get(registrations.new)
