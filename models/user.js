@@ -24,4 +24,8 @@ userSchema.pre('validate', function checkPassword(next) {
   if(this.isModified('password') && this._passwordConfimation !== this.password) this.invalidate('passwordConfirmation', 'does not match');
 });
 
+// userSchema.methods.validatePassword = function validatePassword(password) {
+//   return bcrypt.compareSync(password, this.password);
+// };
+
 module.exports = mongoose.model('User', userSchema);
