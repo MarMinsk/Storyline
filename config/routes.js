@@ -2,11 +2,12 @@ const express        = require('express');
 const router         = express.Router();
 
 // Controllers
+// const statics        = require('../controller/statics');
 const books          = require('../controllers/books');
 const registrations  = require('../controllers/registrations');
+const sessions       = require('../controllers/sessions'); // *walkthru notes
 
 router.get('/', (req, res) => res.render('statics/home'));
-router.get('/', (req, res) => res.render('index'));
 
 router.route('/books')
   .get(books.index)
@@ -26,5 +27,9 @@ router.route('/books/:id/edit')
 router.route('/register')
   .get(registrations.new)
   .post(registrations.create);
+
+router.route('/login')
+  .get(sessions.new)
+  .post(sessions.create);
 
 module.exports = router;

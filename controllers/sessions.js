@@ -1,10 +1,18 @@
-const User = require('../model/user');
+const User = require('../models/user');
 
 function sessionsNew(req, res) {
   res.render('sessions/new');
 }
 
 function sessionsCreate(req, res) {
+  User
+    .findOne({ email: req.body.email })
+    .then((user) => {
+      if(!user || !user.validatePassword(req.body.password)) {
+        return res.status(401).render('sessions/new', { message: 'Unrecognized credentials' });
+      }
+      return res.redirect('/');
+    });
 
 }
 
