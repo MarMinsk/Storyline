@@ -1,16 +1,14 @@
 <h1>Books (index)</h1>
 
-<body>
   <div class="container">
     <ul style="list-style-type:none">
+      <div class="row">
       <% books.forEach(book => { %>
-        <div class="row">
-        <div class="col-md-4">.col-md-4
-        <li><a href="/books/<%= book._id %>"><%= book.title %></a>
-        <img src="<%= book.image %>" alt="<%= book.title %>'s image" class="bookImage"></li>
-        </div>
+        <div class="col-md-4">
+        <li><a href="/books/<%= book._id %>"><%= book.title %><br>
+        <img src="<%= book.image %>" alt="<%= book.title %>'s image" class="bookImage"></a></li>
         </div>
         <% }); %>
+        </div>
       </ul>
   </div>
-</body>
