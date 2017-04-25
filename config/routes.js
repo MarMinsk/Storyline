@@ -5,8 +5,8 @@ const statics        = require('../controllers/statics');
 const books          = require('../controllers/books');
 const registrations  = require('../controllers/registrations');
 const sessions       = require('../controllers/sessions');
+const comments       = require('../controllers/comments');
 
- // *walkthru notes
 
 function secureRoute(req, res, next) {
   if (!req.session.userId) {
@@ -34,6 +34,9 @@ router.route('/books/:id')
 
 router.route('/books/:id/edit')
   .get(secureRoute, books.edit);
+
+router.route('/books/:id/comments')
+  .post(comments.create);
 
 router.route('/register')
   .get(registrations.new)

@@ -1,4 +1,5 @@
 const Book      = require('../models/book');
+// const Comment   = require('../models/comment');
 
 function booksIndex(req, res, next) {
   Book
@@ -37,7 +38,6 @@ function booksEdit(req, res, next) {
   })
   .catch(next);
 }
-
 
 function booksUpdate(req, res, next) {
   Book

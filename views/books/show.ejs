@@ -5,6 +5,21 @@
 <img src="<%= book.image %>" alt="<%= book.title %>'s image" class="bookImage">
 <h4>Author:</h4> <p> <%= book.author %></p>
 <h4>Genre:</h4> <p><%= book.genre %></p>
+
+<form method="POST" class="" action="/books/<%= book.id %>/comments">
+  <div class="form-group">
+    <label for="body">Please leave a comment</label>
+    <textarea id="body" name="body" class="form-control"rows="8" cols="80"></textarea>
+  </div>
+  <input type="submit" name="" value="Submit">
+</form>
+
+<ul>
+  <% book.comments.forEach(comment => { %>
+    <li><a href="/users/<%= comment.user._id %>"><%= comment.user.username %></a> &middot; <%= comment.body %></li>
+  <% }) %>
+</ul>
+
 <form method="post" action="/books/<%= book.id %>">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">
