@@ -36,7 +36,7 @@ router.route('/books/:id/edit')
   .get(secureRoute, books.edit);
 
 router.route('/books/:id/comments')
-  .post(comments.create);
+  .post(secureRoute, comments.create);
 
 router.route('/register')
   .get(registrations.new)

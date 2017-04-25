@@ -48,7 +48,7 @@ app.use((req, res, next) => {
 
   User
     .findById(req.session.userId)
-    .exec()
+    // .exec()
     .then((user) => {
       if(!user) {
         return req.session.regenerate(() => {

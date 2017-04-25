@@ -16,6 +16,7 @@ function commentsCreate(req, res, next) {
         user: res.locals.user._id,
         body: req.body.body
       };
+      console.log(comment.user);
 
       book.comments.push(comment);
 
