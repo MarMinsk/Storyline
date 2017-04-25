@@ -3,9 +3,11 @@
 <h1><%= book.title %></h1>
 <a href="/books/<%= book._id %>/edit">Edit</a>
 <img src="<%= book.image %>" alt="<%= book.title %>'s image" class="bookImage">
-<p>Author: <%= book.author %></p>
-<p>Genre: <%= book.genre %></p>
+<h4>Author:</h4> <p> <%= book.author %></p>
+<h4>Genre:</h4> <p><%= book.genre %></p>
 <form method="post" action="/books/<%= book.id %>">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">
 </form>
+
+<input type="button" name="" value="Back" onclick="history.back(-1)"/>
