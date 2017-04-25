@@ -1,22 +1,29 @@
 body {
   // background: #f9e3f9;
  }
-
 h1, h2, h3, h4, h5, h6  {
   font-family: 'Quicksand', sans-serif;
   color: #565a5c;
 }
-
 p, div {
   font-family: 'Quicksand', sans-serif;
   color: #565a5c;
 }
-
 .bookImage {
   height: 250px;
   width: 150px;
 }
-
 .homeImage{
   border-radius: 50px;
+}
+.quote{
+  font-weight: bold;
+}
+.author {
+  font-style: italic;
+}
+.btn-default {
+  color: #565a5c;
+  background: pink;
+  border: 1px solid #565a5c;
 }
