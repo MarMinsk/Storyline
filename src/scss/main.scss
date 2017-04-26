@@ -2,10 +2,6 @@ body {
   background: rgba(250, 225, 250, 0.25);
 }
 
-main {
-  max-width: 800px;
-}
-
 h1, h2, h3, h4, h5, h6  {
   font-family: 'Quicksand', sans-serif;
   color: #565a5c;
@@ -75,4 +71,9 @@ form {
 
 .form-title {
   margin-top: 20px;
+}
+
+#bookImageShow {
+  margin: 0 auto;
+  display: block;
 }

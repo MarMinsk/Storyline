@@ -1,13 +1,15 @@
 <body>
-  <h1>Books (show pages)</h1>
   <main class="container">
     <div class="showBook">
 
       <h1><%= book.title %></h1>
-      <img src="<%= book.image %>" alt="<%= book.title %>'s image" class="bookImage">
+
+      <img src="<%= book.image %>" alt="<%= book.title %>'s image" class="bookImage" id="bookImageShow">
+
       <div class="authorstyle">
         <h4>Author:<h6><%= book.author %></h6></h4>
       </div>
+
       <div class="genrestyle">
         <h4>Genre:<h6><%= book.genre %></h6></h4>
       </div>
@@ -25,22 +27,14 @@
           <li><a href="/users/<%= comment.user._id %>"><%= comment.user.username %></a> &middot; <%= comment.body %></li>
           <% }) %>
         </ul>
-      </div>
-      <div class="editBook">
-        <p>Would you like to edit this book?</p>
-        <%# hacked button format around <a> tag - may prove probematic for styling! %>
-        <button class="btn btn-default"> <a href="/books/<%= book._id %>/edit"</a>Edit</button>
-      </div>
 
       <div class="deleteBook">
-        <p>Would you like to delete this?</p>
         <form method="post" action="/books/<%= book.id %>">
           <input type="hidden" name="_method" value="delete">
           <input type="submit" class="btn btn-default" value="Delete">
         </form>
       </div>
 
-      <%# <div class="col-md-4">
-      <input type="button" name="" class="btn btn-default" value="Back" onclick="history.back(-1)"/>
-    </div>%>
-  </div>
+      <div class="editBook">
+        <button class="btn btn-default"> <a href="/books/<%= book._id %>/edit"</a>Edit</button>
+      </div>
