@@ -1,40 +1,78 @@
 body {
-  // background: #f9e3f9;
- }
-main {
-   max-width: 800px;
- }
-footer {
-  border-top: 1px solid #eae8e8;
+  background: rgba(250, 225, 250, 0.25);
 }
+
+main {
+  max-width: 800px;
+}
+
 h1, h2, h3, h4, h5, h6  {
   font-family: 'Quicksand', sans-serif;
   color: #565a5c;
+  text-align: center;
 }
+
 p, div {
   font-family: 'Quicksand', sans-serif;
   color: #565a5c;
 }
+
 a {
   color: #565a5c;
 }
+
 .bookImage {
   height: 250px;
   width: 150px;
   border: 1px solid #eae8e8;
   padding: 4px;
 }
-.homeImage{
+
+.homeImage {
   border-radius: 50px;
+  border: 2px solid #eae8e8;
+  padding: 4px;
 }
+
+.homePageBook {
+  text-align: left;
+  margin-top: 50px;
+}
+
 .quote{
   font-weight: bold;
 }
+
 .author {
   font-style: italic;
 }
+
 .btn-default {
   color: #565a5c;
   background: pink;
   border: 1px solid #565a5c;
+}
+
+.pageFooter {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  background-color: #eae8e8;
+}
+
+.home-head {
+  text-align: left;
+}
+
+form {
+  width: 420px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.form-title {
+  margin-top: 20px;
 }

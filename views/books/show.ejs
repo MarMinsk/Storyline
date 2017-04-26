@@ -5,8 +5,12 @@
 
       <h1><%= book.title %></h1>
       <img src="<%= book.image %>" alt="<%= book.title %>'s image" class="bookImage">
-      <h4>Author:</h4> <p> <%= book.author %></p>
-      <h4>Genre:</h4> <p><%= book.genre %></p>
+      <div class="authorstyle">
+        <h4>Author:<h6><%= book.author %></h6></h4>
+      </div>
+      <div class="genrestyle">
+        <h4>Genre:<h6><%= book.genre %></h6></h4>
+      </div>
 
       <form method="POST" class="" action="/books/<%= book.id %>/comments">
         <div class="form-group">
