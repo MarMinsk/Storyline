@@ -11,6 +11,8 @@ function booksIndex(req, res, next) {
 function booksShow(req, res, next) {
   Book
   .findById(req.params.id)
+  .populate('comments.user') //need this for populating username into comments
+  .exec()
   .then((book) => {
     if(!book) return res.status(404).render('statics/404');
     res.render('books/show', { book });
