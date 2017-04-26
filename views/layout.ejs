@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-
   <title>WDI Project 2</title>
-
-
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -17,60 +13,62 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-
-<%# this needs to be after bootstrap links so bootstrap doesn't reset it%>
+  <%# this needs to be after bootstrap links so bootstrap doesn't reset it%>
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/client.js" charset="utf-8"></script>
-
 </head>
 
 <body>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">LOGO?</a>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">IMAGE?</a>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <% if (locals.isLoggedIn) { %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <% if (locals.isLoggedIn) { %>
           <li class="nav-item">
-            <a class="nav-link" href="/books/new">Add Book</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
+          <a class="nav-link" href="/books/new">Add Book</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/books">View Books</a>
+          <a class="nav-link" href="/logout">Logout</a>
           </li>
-        <% } else{ %>
           <li class="nav-item">
+          <a class="nav-link" href="/books">View Books</a>
+          </li>
+          <% } else{ %>
+            <li class="nav-item">
             <a class="nav-link" href="/login">Log In</a>
-          </li>
-          <li class="nav-item">
+            </li>
+            <li class="nav-item">
             <a class="nav-link" href="/register">Register</a>
-          </li>
-          <li class="nav-item">
+            </li>
+            <li class="nav-item">
             <a class="nav-link" href="/books">View Books</a>
-          </li>
-        <% } %>
-        </ul>
-        <%# <form class="form-inline my-2 my-lg-0">
+            </li>
+            <% } %>
+          </ul>
+          <%# <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>%>
       </div>
     </nav>
+    <main class="container">
+      <% for (const type in messages) { %>
+        <p class="alert alert-<%= type %>"><%= messages[type] %></p>
+        <% } %>
 
-<main class="container">
-  <% for (const type in messages) { %>
-    <p class="alert alert-<%= type %>"><%= messages[type] %></p>
-  <% } %>
-
-  <%- body %>
-</main>
-</body>
-</html>
+        <%- body %>
+      </main>
+    </body>
+    <footer>
+      <div class="joinGroup">
+        <p>Join the Group</p>
+      </div>
+    </footer>
+    </html>

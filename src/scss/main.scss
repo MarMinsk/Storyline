@@ -1,12 +1,21 @@
 body {
   // background: #f9e3f9;
  }
+main {
+   max-width: 800px;
+ }
+footer {
+  border-top: 1px solid #eae8e8;
+}
 h1, h2, h3, h4, h5, h6  {
   font-family: 'Quicksand', sans-serif;
   color: #565a5c;
 }
 p, div {
   font-family: 'Quicksand', sans-serif;
+  color: #565a5c;
+}
+a {
   color: #565a5c;
 }
 .bookImage {
@@ -28,7 +37,4 @@ p, div {
   color: #565a5c;
   background: pink;
   border: 1px solid #565a5c;
-}
-.quoteBox {
-  line-height: 1px;
 }
