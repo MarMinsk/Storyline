@@ -1,6 +1,5 @@
 body {
   background: rgba(250, 225, 250, 0.25);
-  background-image: url('../images/flower-wallpaper-image.jpg');
 }
 h1, h2, h3, h4, h5, h6  {
   font-family: 'Quicksand', sans-serif;
@@ -8,6 +7,7 @@ h1, h2, h3, h4, h5, h6  {
   text-align: center;
 }
 h1 {
+
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -27,9 +27,14 @@ form {
 .author {
   font-style: italic;
 }
+.authorAndGenre {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
 .authorstyle, .genrestyle {
   display: inline-block;
-align-items: center;
+text-align: center;
 }
 .bookImage {
   height: 250px;
@@ -42,6 +47,9 @@ align-items: center;
   background: rgba(90, 185, 90, 0.12 );
   border: 1px solid #565a5c;
 }
+.commentDisplay {
+  margin-top: 20px;
+}
 .commentForm {
   background-color: rgba(150, 125, 150, 0.1);
   border: 2px solid #eae8e8;
@@ -49,6 +57,10 @@ align-items: center;
   max-width: 80%;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  margin-left: 90px;
+}
+.deleteBook {
+  margin-left: 12px;
 }
 .deleteBook, .editBook {
   display: inline-block;
@@ -67,6 +79,10 @@ align-items: center;
 .homePageBook {
   text-align: left;
   margin-top: 50px;
+}
+.indexPage{
+  margin: 0 auto;
+  max-width: 80%;
 }
 .inputForm {
   background-color: rgba(150, 125, 150, 0.1);
@@ -89,6 +105,7 @@ align-items: center;
   width: 100%;
   background-color: rgba(90, 185, 90, 0.12 );
   border: 2px solid #eae8e8;
+  text-align: center;
 }
 .quote{
   font-weight: bold;

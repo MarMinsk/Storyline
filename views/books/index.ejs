@@ -1,11 +1,11 @@
 <body>
-  <h1>Books (index)</h1>
+  <h1>Bookshelf</h1>
   <main class="container">
-    <div>
+    <div class="indexPage">
       <ul style="list-style-type:none">
         <div class="row">
           <% books.forEach(book => { %>
-            <div class="col-md-4">
+            <div class="col-md-4 col-s-6">
             <li><a href="/books/<%= book._id %>"><%= book.author %><br>
             <img src="<%= book.image %>" alt="<%= book.title %>'s image" class="bookImage"></a></li>
             </div>
