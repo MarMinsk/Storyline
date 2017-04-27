@@ -68,6 +68,7 @@ app.use((req, res, next) => {
       next();
     });
 });
-
+// this is just separating out routes but it could remain here
 app.use(routes);
+
 app.listen(env.port, () => console.log(`Express is listening on port ${env.port}`));

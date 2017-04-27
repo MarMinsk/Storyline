@@ -1,32 +1,50 @@
 body {
   background: rgba(250, 225, 250, 0.25);
+  background-image: url('../images/flower-wallpaper-image.jpg');
 }
-
 h1, h2, h3, h4, h5, h6  {
   font-family: 'Quicksand', sans-serif;
   color: #565a5c;
   text-align: center;
 }
-
+h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 p, div {
   font-family: 'Quicksand', sans-serif;
   color: #565a5c;
 }
-
 a {
   color: #565a5c;
 }
-
+form {
+  width: 420px;
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.inputForm {
+  background-color: rgba(150, 125, 150, 0.1);
+  border: 2px solid #eae8e8;
+  border-radius: 10px;
+  max-width: 60%;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.navbar {
+  background-color: rgba(90, 185, 90, 0.12 );
+  border: 2px solid #eae8e8;
+}
 .bookImage {
   height: 250px;
   width: 150px;
   border: 1px solid #eae8e8;
   padding: 4px;
 }
-
 .homeImage {
   border-radius: 50px;
-  border: 2px solid #eae8e8;
+  border: 5px solid #eae8e8;
   padding: 4px;
 }
 
@@ -45,28 +63,23 @@ a {
 
 .btn-default {
   color: #565a5c;
-  background: pink;
+  background: rgba(90, 185, 90, 0.12 );
   border: 1px solid #565a5c;
 }
 
 .pageFooter {
-  position: fixed;
+  position: relative;
   left: 0px;
   bottom: 0px;
   height: 30px;
+  margin-top: 20px;
   width: 100%;
-  background-color: #eae8e8;
+  background-color: rgba(90, 185, 90, 0.12 );
+  border: 2px solid #eae8e8;
 }
 
 .home-head {
   text-align: left;
-}
-
-form {
-  width: 420px;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 50px;
 }
 
 .form-title {
