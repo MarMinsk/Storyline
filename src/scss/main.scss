@@ -24,6 +24,50 @@ form {
   margin: 0 auto;
   margin-top: 50px;
 }
+.author {
+  font-style: italic;
+}
+.authorstyle, .genrestyle {
+  display: inline-block;
+align-items: center;
+}
+.bookImage {
+  height: 250px;
+  width: 150px;
+  border: 1px solid #eae8e8;
+  padding: 4px;
+}
+.btn-default {
+  color: #565a5c;
+  background: rgba(90, 185, 90, 0.12 );
+  border: 1px solid #565a5c;
+}
+.commentForm {
+  background-color: rgba(150, 125, 150, 0.1);
+  border: 2px solid #eae8e8;
+  border-radius: 10px;
+  max-width: 80%;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.deleteBook, .editBook {
+  display: inline-block;
+}
+.form-title {
+  margin-top: 20px;
+}
+.home-head {
+  text-align: left;
+}
+.homeImage {
+  border-radius: 50px;
+  border: 5px solid #eae8e8;
+  padding: 4px;
+}
+.homePageBook {
+  text-align: left;
+  margin-top: 50px;
+}
 .inputForm {
   background-color: rgba(150, 125, 150, 0.1);
   border: 2px solid #eae8e8;
@@ -36,37 +80,6 @@ form {
   background-color: rgba(90, 185, 90, 0.12 );
   border: 2px solid #eae8e8;
 }
-.bookImage {
-  height: 250px;
-  width: 150px;
-  border: 1px solid #eae8e8;
-  padding: 4px;
-}
-.homeImage {
-  border-radius: 50px;
-  border: 5px solid #eae8e8;
-  padding: 4px;
-}
-
-.homePageBook {
-  text-align: left;
-  margin-top: 50px;
-}
-
-.quote{
-  font-weight: bold;
-}
-
-.author {
-  font-style: italic;
-}
-
-.btn-default {
-  color: #565a5c;
-  background: rgba(90, 185, 90, 0.12 );
-  border: 1px solid #565a5c;
-}
-
 .pageFooter {
   position: relative;
   left: 0px;
@@ -77,15 +90,13 @@ form {
   background-color: rgba(90, 185, 90, 0.12 );
   border: 2px solid #eae8e8;
 }
-
-.home-head {
-  text-align: left;
+.quote{
+  font-weight: bold;
 }
-
-.form-title {
-  margin-top: 20px;
+.showBook {
+  margin: 0 auto;
+  max-width: 60%;
 }
-
 #bookImageShow {
   margin: 0 auto;
   display: block;
