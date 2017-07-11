@@ -1,13 +1,13 @@
-#Storyline 
+# Storyline 
 
-##General Assembly WDI Project 2
+## General Assembly WDI Project 2
 
 ### Introduction
 
 The brief for this project was to create a full-stack  web app using RESTful resources and authentication. It was required that the app be build using NodeJS and Express with a Mongo database and a Mongoose ORM on the back end and AngularJS as the front end framework. 
 
 
-###About the project
+### About the project
 Our second GA WDI module introduced us to the concepts of MVC design patterns, RESTful routing with Express.js, the Angular framework, Node.js for server-side JavaScript, and NoSQL with MongoDB. At the end of this module we built our first MEAN stack application. I chose to build an application for my book club, called ‘Storyline’, which is a reading resource and repository that allows users to add books, share comments about the books and make reading suggestions. Again, this was a site I had wanted to build for some time as a tool share with my friends and other book lovers. 
 
 A hosted version of the app can be found [here] (https://limitless-waters-27769.herokuapp.com/) and the code for the game can be found [here] (https://github.com/MarMinsk/Storyline).
